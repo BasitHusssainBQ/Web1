@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 200px repeat(2, 400px) 200px;
+    grid-template-areas: "header header header"
+                         "menu mainSec ad1"
+                         "ad2 mainSec ad1"
+                         "footer footer footer";
+}
+
+.header {
+    grid-area: header;
+    background-color: aqua;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: rgb(234, 129, 0);
+}
+
+.main {
+    grid-area: mainSec;
+    background-color: blue;
+}
+
+.ad1 {
+    grid-area: ad1;
+    background-color: blueviolet;
+}
+
+.ad2 {
+    grid-area: ad2;
+    background-color: burlywood;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: chartreuse;
+}
