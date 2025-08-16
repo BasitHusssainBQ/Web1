@@ -4,48 +4,99 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --color-primary: #c69963;
+    --color-primary-dark: #b28451;
+    --color-secondary: rgb(16, 29, 44);
+    --color-grey-light-1: #f9f7f6;
+    --color-grey-light-2: #aaa;
+    --color-grey-dark-1: #54483a;
+    --color-grey-dark-2: #6d5d4b;
+}
+
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 100px repeat(3, 350px) 100px;
-    grid-template-areas: "header header header header"
-                         "sidebar title title title" 
-                         "sidebar article1 article2 article3"
-                         "sidebar article1 article2 article3"
-                         "footer footer footer footer";
+    grid-template-columns: 8rem 1fr repeat(6, 18.3rem) 1fr;
+    grid-template-rows: repeat(2, min-content) 40vw min-content 80vh min-content;
+    grid-template-areas: "navbar header header header header header realtors realtors realtors"
+                         "navbar . services services services services services services ." 
+                         "navbar goals goals goals goals goals-content goals-content goals-content goals-content"
+                         "navbar . homes homes homes homes homes homes ." 
+                         "navbar gallery gallery gallery gallery gallery gallery gallery gallery" 
+                         "navbar footer footer footer footer footer footer footer footer";
 }
+
+.navbar {
+    grid-area: navbar;
+    background-color: var(--color-primary);
+    display: grid;
+    justify-items: center;
+}
+
+.navbar .nav-icon {
+    position: relative;
+    margin-top: 20px;
+    height: 1px;
+    width: 5rem;
+    background-color: var(--color-grey-light-1);
+}
+
+.navbar .nav-icon::before,
+.navbar .nav-icon::after {
+    content: "";
+    position: absolute;
+    top: -1rem;
+    height: 1px;
+    width: 5rem;
+    background-color: var(--color-grey-light-1);
+ }
+
+.navbar .nav-icon::after {
+    top: 1rem
+}
+
 
 .header {
     grid-area: header;
     background-color: aqua;
 }
 
-.sidebar {
-    grid-area: sidebar;
-    background-color: rgb(234, 129, 0);
-}
-
-.title {
-    grid-area: title;
+.realtors {
+    grid-area: realtors;
     background-color: blue;
 }
 
-.article1 {
-    grid-area: article1;
+.services {
+    grid-area: services;
     background-color: blueviolet;
 }
 
-.article2 {
-    grid-area: article2;
+.goals {
+    grid-area: goals;
     background-color: burlywood;
 }
 
-.article3 {
-    grid-area: article3;
+.goals-content {
+    grid-area: goals-content;
     background-color: rgb(0, 217, 255);
+}
+
+.homes {
+    grid-area: homes;
+    background-color: chartreuse;
+}
+
+.gallery {
+    grid-area: gallery;
+    background-color: rgb(181, 33, 235);
 }
 
 .footer {
     grid-area: footer;
-    background-color: chartreuse;
+    background-color: rgb(226, 127, 20);
 }
