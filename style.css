@@ -19,6 +19,54 @@ html {
     --color-grey-dark-2: #6d5d4b;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+}
+
+/* utility classes */
+.primary-logo {
+    width: 14rem;
+    height: 4rem;
+}
+
+.heading-secondary {
+    font-size: 1.6rem;
+}
+
+.heading-primary {
+    font-size: 3rem;
+}
+
+.color-primary {
+    color: var(--color-primary)
+}
+
+.color-light {
+    color: var(--color-grey-light-1);
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1.2rem; 
+    padding: 1rem 1.2rem;
+    background-color: var(--color-primary);
+    color: var(--color-grey-light-1);
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 4rem;
+}
+
+.mb-6 {
+    margin-bottom: 6rem;
+}
+
 .container {
     display: grid;
     grid-template-columns: 8rem 1fr repeat(6, 18.3rem) 1fr;
@@ -40,35 +88,108 @@ html {
 
 .navbar .nav-icon {
     position: relative;
-    margin-top: 20px;
-    height: 1px;
+    margin-top: 4rem;
     width: 5rem;
+    height: 0.1rem;
+    border-radius: 1rem;
     background-color: var(--color-grey-light-1);
 }
 
 .navbar .nav-icon::before,
 .navbar .nav-icon::after {
     content: "";
-    position: absolute;
-    top: -1rem;
-    height: 1px;
     width: 5rem;
+    height: 0.1rem;
+    border-radius: 1rem;
     background-color: var(--color-grey-light-1);
- }
+    position: absolute;
+    top: -1.2rem;
+}
 
 .navbar .nav-icon::after {
-    top: 1rem
+    top: 1.2rem;
 }
 
 
 .header {
     grid-area: header;
-    background-color: aqua;
+    background: linear-gradient(rgba(16, 29, 44, 0.8), rgba(16, 29, 44, 0.9)),
+     url('./img/back.jpg') no-repeat center center/cover;
+     display: grid;
+     grid-template-rows: auto;
+     padding: 2.8rem 5rem;
+     justify-items: start;
 }
+
+.header .header-logo {
+    justify-self: center;
+}
+
+.header .seen-on {
+    color: var(--color-grey-light-1);
+    font-weight: 700;
+    justify-self: center;
+    text-align: center;
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.header .seen-on::before,
+.header .seen-on::after {
+    content: '';
+    width: 28rem;
+    height: 0.1rem;
+    background-color: var(--color-grey-light-1);
+    position: absolute;
+    left: -30.2rem;
+    top: 50%;
+}
+
+.header .seen-on::after { 
+     left: 6.2rem;
+}
+
+.header .brands {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
 
 .realtors {
     grid-area: realtors;
-    background-color: blue;
+    background-color: var(--color-secondary);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.realtors h3 {
+    font-size: 2.4rem;
+}
+
+.realtors .realtor-list {
+    display: grid;
+    grid-gap: 2rem;
+}
+
+.realtors .realtor-list .realtor {
+    display: grid;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: 5rem 10rem;
+}
+
+.realtors .realtor-list .realtor img {
+    border-radius: 50%;
+}
+
+.realtors .realtor-list .realtor h4 {
+    font-size: 1.6rem;
+}
+
+.realtors .realtor-list .realtor p {
+    font-size: 1.2rem;
 }
 
 .services {
