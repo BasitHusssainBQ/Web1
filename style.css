@@ -19,10 +19,48 @@ html {
     --color-grey-dark-2: #6d5d4b;
 }
 
+img {
+    height: 100%;
+    width: 100%;
+}
+
+/* utility classes */
+.logo-primary {
+    width: 14rem;
+    height: 4rem;
+}
+
+.primary-heading {
+    color: var(--color-grey-light-1);
+    font-size: 3rem;
+}
+
+.secondary-heading {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+}
+
+.primary-btn {
+    background-color: var(--color-primary);
+    color: var(--color-grey-light-1);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 4rem;
+}
+
 .container {
     display: grid;
     grid-template-columns: 8rem 1fr repeat(6, 18.3rem) 1fr;
-    grid-template-rows: repeat(2, min-content) 40vw min-content 80vh min-content;
+    grid-template-rows: repeat(2, min-content) 40vh repeat(3, min-content);
     grid-template-areas: "navbar header header header header header realtors realtors realtors"
                          "navbar . services services services services services services ." 
                          "navbar goals goals goals goals goals-content goals-content goals-content goals-content"
@@ -63,12 +101,86 @@ html {
 
 .header {
     grid-area: header;
-    background-color: aqua;
+    background: linear-gradient(rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.8)), url('./img/back.jpg') no-repeat center center/cover;
+    padding: 3rem 5rem;
+    display: grid;
+    grid-template-rows: auto;
+    justify-items: start;
+}
+
+.header .logo-header {
+    margin-bottom: 4rem;
+    justify-self: center;
+}
+
+.header .seen-on {
+    color: var(--color-grey-light-1);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    justify-self: center;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.header .seen-on::before,
+.header .seen-on::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background-color: var(--color-grey-light-1);
+    width: 280px;
+    top: 50%;
+    left: -29.4rem;
+}
+
+.header .seen-on::after { 
+    left: 5.8rem;
+}
+
+.header .brands {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
 }
 
 .realtors {
     grid-area: realtors;
-    background-color: blue;
+    background-color: var(--color-secondary);
+    align-content: center;
+}
+
+.realtors h3 {
+    color: var(--color-grey-light-1);
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.realtors .realtor-list {
+    display: grid;
+    justify-content: center;
+    grid-gap: 2rem;
+}
+
+.realtor-list .realtor {
+    display: grid;
+    grid-template-columns: 5rem 10rem;
+    align-items: center;
+    grid-gap: 2rem;
+    color: var(--color-grey-light-1);
+}
+
+.realtor-list .realtor img {
+    border-radius: 50%;
+}
+
+.realtor-list .realtor h4 {
+    font-size: 1.4rem;
+}
+
+.realtor-list .realtor p {
+    font-size: 1rem;
 }
 
 .services {
