@@ -55,6 +55,10 @@ img {
     color: var(--color-grey-light-1);
 }
 
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
 .mb-2 {
     margin-bottom: 2rem;
 }
@@ -69,7 +73,7 @@ img {
 
 .container {
     display: grid;
-    grid-template-columns: 8rem 1fr repeat(6, 18.3rem) 1fr;
+    grid-template-columns: 8rem 1fr repeat(6, minmax(min-content, 18.3rem)) 1fr;
     grid-template-rows: repeat(2, min-content) 40vw min-content 80vh min-content;
     grid-template-areas: "navbar header header header header header realtors realtors realtors"
                          "navbar . services services services services services services ." 
@@ -194,8 +198,33 @@ img {
 
 .services {
     grid-area: services;
-    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 6rem;
+    margin: 14rem 0;
 }
+
+.services .service {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    grid-gap: 2rem;
+}
+
+.services .service .icon .serviceIcon {
+    width: 4rem;
+    height: 4rem;
+    fill: var(--color-primary);
+}
+
+.services .service h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.services .service p {
+    font-size: 1.6rem;
+}
+
 
 .goals {
     grid-area: goals;
@@ -209,12 +238,57 @@ img {
 
 .homes {
     grid-area: homes;
-    background-color: chartreuse;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 6rem;
+    margin: 14rem 0;
+}
+
+.homes .home {
+    display: grid;
+}
+
+.homes .home .home-img {
+    position: relative;
+}
+
+.homes .home .favIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+    z-index: 11;
+}
+
+.homes .home .label {
+    position: relative;
+    padding: 1rem;
+    background-color: var(--color-grey-dark-1);
+    color: var(--color-grey-light-1);
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+    max-width: 70%;
+    margin: 0 auto;
+    margin-top: -2rem;
+}
+
+.homes .home .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    grid-gap: 1.4rem;
+    font-size: 1.6rem;
+    color: var(--color-grey-dark-1);
+    background-color: var(--color-grey-light-1);
+    padding: 4rem 0;
+    
 }
 
 .gallery {
     grid-area: gallery;
-    background-color: rgb(181, 33, 235);
 }
 
 .footer {
