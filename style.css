@@ -5,7 +5,8 @@
 }
 
 html {
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%;
+    /* 1rem = 10px */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -38,18 +39,30 @@ img {
     font-size: 3rem;
 }
 
+.text {
+    font-size: 1.4rem;
+}
+
 .color-primary {
     color: var(--color-primary)
+}
+
+.color-dark {
+    color: var(--color-grey-dark-1)
 }
 
 .color-light {
     color: var(--color-grey-light-1);
 }
 
+.color-light-secondary {
+    color: var(--color-grey-light-2);
+}
+
 .btn-primary {
     border: none;
     border-radius: 0.6rem;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
     padding: 1rem 1.2rem;
     background-color: var(--color-primary);
     color: var(--color-grey-light-1);
@@ -74,13 +87,13 @@ img {
 .container {
     display: grid;
     grid-template-columns: 8rem 1fr repeat(6, minmax(min-content, 18.3rem)) 1fr;
-    grid-template-rows: repeat(2, min-content) 40vw min-content 80vh min-content;
+    grid-template-rows: repeat(2, min-content) 40vw repeat(3, min-content);
     grid-template-areas: "navbar header header header header header realtors realtors realtors"
-                         "navbar . services services services services services services ." 
-                         "navbar goals goals goals goals goals-content goals-content goals-content goals-content"
-                         "navbar . homes homes homes homes homes homes ." 
-                         "navbar gallery gallery gallery gallery gallery gallery gallery gallery" 
-                         "navbar footer footer footer footer footer footer footer footer";
+        "navbar . services services services services services services ."
+        "navbar goals goals goals goals goals-content goals-content goals-content goals-content"
+        "navbar . homes homes homes homes homes homes ."
+        "navbar gallery gallery gallery gallery gallery gallery gallery gallery"
+        "navbar footer footer footer footer footer footer footer footer";
 }
 
 .navbar {
@@ -118,11 +131,11 @@ img {
 .header {
     grid-area: header;
     background: linear-gradient(rgba(16, 29, 44, 0.8), rgba(16, 29, 44, 0.9)),
-     url('./img/back.jpg') no-repeat center center/cover;
-     display: grid;
-     grid-template-rows: auto;
-     padding: 2.8rem 5rem;
-     justify-items: start;
+        url('./img/back.jpg') no-repeat center center/cover;
+    display: grid;
+    grid-template-rows: auto;
+    padding: 2.8rem 5rem;
+    justify-items: start;
 }
 
 .header .header-logo {
@@ -149,8 +162,8 @@ img {
     top: 50%;
 }
 
-.header .seen-on::after { 
-     left: 6.2rem;
+.header .seen-on::after {
+    left: 6.2rem;
 }
 
 .header .brands {
@@ -199,21 +212,21 @@ img {
 .services {
     grid-area: services;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 6rem;
-    margin: 14rem 0;
+    margin: 14rem 2rem;
 }
 
 .services .service {
     display: grid;
-    grid-template-columns: 4rem 1fr;
+    grid-template-columns: 6rem 1fr;
     grid-gap: 2rem;
 }
 
-.services .service .icon .serviceIcon {
-    width: 4rem;
-    height: 4rem;
-    fill: var(--color-primary);
+.services .service .service-icon {
+    width: 6rem;
+    height: 6rem;
+    fill: var(--color-primary)
 }
 
 .services .service h3 {
@@ -222,18 +235,41 @@ img {
 }
 
 .services .service p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 
 .goals {
     grid-area: goals;
-    background-color: burlywood;
+    background: url('./img/back.jpg'),
+        linear-gradient(rgba(198, 153, 99, 0.8), rgba(198, 153, 99, 0.9)) no-repeat center center/cover;
+    padding: 4rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+
+.goals .goals-img-1 {
+    width: 80%;
+    height: auto;
+}
+
+.goals .goals-img-2 {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 .goals-content {
     grid-area: goals-content;
-    background-color: rgb(0, 217, 255);
+    background-color: var(--color-grey-light-1);
+    padding: 10rem;
+    display: grid;
+    align-content: center;
+    justify-items: start;
 }
 
 .homes {
@@ -241,57 +277,223 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 6rem;
-    margin: 14rem 0;
+    margin: 14rem 2rem;
 }
 
 .homes .home {
     display: grid;
-}
-
-.homes .home .home-img {
     position: relative;
+    background-color: var(--color-grey-light-1);
+
 }
 
-.homes .home .favIcon {
+.homes .home .home-fav-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: var(--color-grey-light-1);
     position: absolute;
+    z-index: 1;
     top: 1rem;
     right: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: white;
-    z-index: 11;
 }
 
-.homes .home .label {
-    position: relative;
-    padding: 1rem;
+.homes .home .home-label {
+    width: 100%;
+    max-width: 70%;
+    padding: 1.2rem;
     background-color: var(--color-grey-dark-1);
     color: var(--color-grey-light-1);
     font-size: 1.4rem;
-    text-align: center;
-    width: 100%;
-    max-width: 70%;
     margin: 0 auto;
-    margin-top: -2rem;
+    text-align: center;
+    margin-top: -1.8rem;
 }
 
 .homes .home .features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
-    grid-gap: 1.4rem;
-    font-size: 1.6rem;
-    color: var(--color-grey-dark-1);
-    background-color: var(--color-grey-light-1);
-    padding: 4rem 0;
-    
+    grid-gap: 2rem;
+    font-size: 1.4rem;
+    color: var(--color-grey-light-2);
+    margin: 2rem 0;
 }
+
+.homes .home button {
+    background-color: var(--color-primary);
+    color: var(--color-grey-light-1);
+    padding: 1.4rem;
+    text-align: center;
+    border: none;
+}
+
 
 .gallery {
     grid-area: gallery;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 1rem;
+}
+
+.gallery img:first-child {
+    grid-column: 1/ span 2;
+    grid-row: 1/ span 2
+}
+
+.gallery img:nth-child(2) {
+    grid-column: 3/ span 3;
+    grid-row: 1/ span 3
+}
+
+.gallery img:nth-child(3) {
+    grid-column: 6/ span 1;
+    grid-row: 1/ span 2
+}
+
+.gallery img:nth-child(4) {
+    grid-column: 7/ span 2;
+    grid-row: 1/ span 2
+}
+
+.gallery img:nth-child(5) {
+    grid-column: 1/ span 2;
+    grid-row: 3/ span 3;
+}
+
+.gallery img:nth-child(6) {
+    grid-column: 3/ span 2;
+    grid-row: 4/ span 2
+}
+
+.gallery img:nth-child(7) {
+    grid-column: 5/ span 1;
+    grid-row: 4/ span 1;
+}
+
+.gallery img:nth-child(8) {
+    grid-column: 6/ span 2;
+    grid-row: 3/ span 2;
+}
+
+.gallery img:nth-child(9) {
+    grid-column: 8/ span 1;
+    grid-row: 3/ span 3;
+}
+
+.gallery img:nth-child(10) {
+    grid-column: 1/ span 1;
+    grid-row: 6/ span 2;
+}
+
+.gallery img:nth-child(11) {
+    grid-column: 2/ span 2;
+    grid-row: 6/ span 2;
+}
+
+.gallery img:nth-child(12) {
+    grid-column: 4/ span 1;
+    grid-row: 6/ span 2;
+}
+
+.gallery img:nth-child(13) {
+    grid-column: 5/ span 3;
+    grid-row: 5/ span 3;
+}
+
+.gallery img:last-child {
+    grid-column: 8/ span 1;
+    grid-row: 6/ span 2;
 }
 
 .footer {
     grid-area: footer;
-    background-color: rgb(226, 127, 20);
+    background-color: var(--color-secondary);
+    padding: 4rem 2rem;
 }
+
+.footer .footer-links {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-gap: 2rem;
+    justify-items: center;
+    justify-content: center;
+}
+
+.footer .footer-links li a {
+    display: block;
+    color: var(--color-grey-light-1);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    padding: 1.2rem;
+    transition: 0.2s all ease-in;
+}
+
+.footer .footer-links li a:hover {
+    background-color: rgba(196, 208, 222, 0.5);
+    transform: translateY(-0.4rem);
+}
+
+.footer p {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1600px) {}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        grid-template-rows: repeat(3, min-content) 40vw repeat(3, min-content);        
+        grid-template-areas: 
+            "navbar header header header header header header header header"
+            "navbar realtors realtors realtors realtors realtors realtors realtors realtors"
+            "navbar . services services services services services services ."
+            "navbar goals goals goals goals goals-content goals-content goals-content goals-content"
+            "navbar . homes homes homes homes homes homes ."
+            "navbar gallery gallery gallery gallery gallery gallery gallery gallery"
+            "navbar footer footer footer footer footer footer footer footer";
+    }
+
+    .realtors {
+        padding: 4rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        grid-template-columns: 1fr repeat(6, minmax(min-content, 18.3rem)) 1fr;
+        grid-template-rows: repeat(4, min-content) 40vw repeat(4, min-content);        
+        grid-template-areas: 
+            "navbar navbar navbar navbar navbar navbar navbar navbar"
+            "header header header header header header header header"
+            "realtors realtors realtors realtors realtors realtors realtors realtors"
+            ". services services services services services services ."
+            "goals goals goals goals goals goals goals goals"
+            "goals-content goals-content goals-content goals-content goals-content goals-content goals-content goals-content"
+            ". homes homes homes homes homes homes ."
+            "gallery gallery gallery gallery gallery gallery gallery gallery"
+            "footer footer footer footer footer footer footer footer";
+    }
+
+    .navbar {
+        justify-items: end;
+        height: 5rem;
+    }
+
+    .navbar .nav-icon {
+        margin-top: 2.2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media only screen and (max-width: 300px) {}
