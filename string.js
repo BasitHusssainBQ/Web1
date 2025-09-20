@@ -1,6 +1,11 @@
 var firstName = 'Basit';
 var lastName = "Hussain";
 
+console.log(a)
+let a = 10;
+
+console.log(fullName, 'fullName')
+
 var fullName = firstName + " " + lastName;
 
 console.log(fullName.toUpperCase() , ' --> toUpperCase')
