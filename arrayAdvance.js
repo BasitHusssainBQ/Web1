@@ -95,3 +95,9 @@ const sortArr = users.sort((a,b) => {
 })
 
 console.log(sortArr)
+
+// filter -> array
+// reduce -> value
+// map -> array
+// sort -> array
+// find -> item
